@@ -1,3 +1,62 @@
 <h1>DMAP BOIIIIIIIIIS</h1>
 <script src="processing.js"></script>
-<canvas data-processing-sourses="hello-web.pde"></canvas>
+<script type="text/processing">
+int erasebtnx = 0;
+int erasebtny = 0;
+int erasebtnw = 70;
+int erasebtnh = 20;
+String pentype = "pen";
+int penbtnx = 75;
+int penbtny = 0;
+int penbtnw = 70;
+int penbtnh = 20;
+void setup(){
+  noStroke();
+  background(0,0,0);
+  size(1000,800);
+}
+void draw( ){
+  //erasebtn
+    fill(145, 145, 15);
+    rect(erasebtnx,erasebtny,erasebtnw,erasebtnh);
+    fill(0,0,0);
+      fill(255,255,255);
+    textSize(15);
+    text("eraser",erasebtnx+10,erasebtny+10);
+    //penbtn
+     fill(145, 145, 15);
+    rect(penbtnx,penbtny,penbtnw,penbtnh);
+     fill(0,0,0);
+      fill(255,255,255);
+    textSize(15);
+    text("PEN",penbtnx+10,penbtny+10);
+}
+void mouseDragged(){
+   
+    if (pentype == "eraser"){
+      fill(0,0,0);
+    ellipse(mouseX, mouseY,30, 30); 
+      
+      
+    } 
+    if(pentype == "pen"){
+     fill(0, 247, 255);
+    ellipse(mouseX, mouseY,30, 30); 
+    }
+}
+void mouseClicked(){
+  if((mouseX > erasebtnx && mouseX < (erasebtnx+erasebtnw))&&(mouseY > erasebtny && mouseY < (erasebtny+erasebtnh))){
+  print("clicked"); 
+  pentype = "eraser";
+  }
+     if((mouseX > penbtnx && mouseX < (penbtnx+penbtnw))&&(mouseY > penbtny && mouseY < (penbtny+penbtnh))){
+  print("clicked2"); 
+ pentype = "pen";
+     }  
+}
+
+
+  
+  
+</script>
+<canvas style="border: 1px solid black; "></canvas>
